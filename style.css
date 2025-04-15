@@ -58,6 +58,7 @@ a {
     flex-direction: column;
     align-items: center; /* Center content like the portfolio section */
     gap: 40px; /* Space between header, main, footer */
+    overflow-x: hidden
 }
 
 /* --- Header Section --- */
