@@ -21,7 +21,7 @@ body {
 
 @font-face {
     font-family: 'Mattone';
-    src: url("fonts/Mattone-Bold.woff2") format("woff2");
+    src: url("../fonts/Mattone-Bold.woff2") format("woff2");
 
 }
 
@@ -100,7 +100,7 @@ a {
 .logo-text {
     color: black;
     font-size: 48px;
-    font-family: 'Mattone', sans-serif; /* Specify fallback */
+    font-family: 'Mattone'; /* Specify fallback */
     font-weight: 900;
     word-wrap: break-word;
     margin-right: 10px; /* Space before the 'O' */
