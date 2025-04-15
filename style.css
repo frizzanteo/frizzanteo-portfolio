@@ -18,9 +18,10 @@ body {
     background-color: white;
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
+
 @font-face {
     font-family: "Mattone";
-    src: url("frizzanteo-portfolio/fonts/Mattone-Bold.woff2") format("woff2");
+    src: url("/fonts/Mattone-Bold.woff2") format("woff2");
 
 }
 
