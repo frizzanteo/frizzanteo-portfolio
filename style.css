@@ -1,0 +1,483 @@
+/* --- Base Styles & Resets --- */
+* {
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    margin: 0;
+    padding: 0;
+}
+
+ /*div {
+
+    border: 1px solid black;
+
+}*/
+
+body {
+    font-family: 'Work Sans', sans-serif; /* Default font */
+    line-height: 1.6;
+    color: black;
+    background-color: white;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+
+img {
+    max-width: 100%; /* Make images responsive by default */
+    height: auto;   /* Maintain aspect ratio */
+    display: block; /* Remove extra space below images */
+    padding-bottom: 20px; padding-top: 20px;
+
+}
+
+a {
+    color: inherit; /* Inherit text color */
+    text-decoration: none; /* Remove underline by default */
+}
+
+/* --- Font Imports (Ensure you have these or use web fonts) --- */
+/* @font-face { font-family: Mattone; src: url('path/to/mattone.woff2'); font-weight: 900; } */
+/* @font-face { font-family: 'Work Sans'; src: url('path/to/worksans-regular.woff2'); font-weight: 400; } */
+/* @font-face { font-family: 'Work Sans'; src: url('path/to/worksans-bold.woff2'); font-weight: 700; } */
+
+
+/* --- Page Container --- */
+.page-container {
+    width: 100%;
+    max-width: 1440px; /* Optional: Limit max width on very large screens */
+    margin: 0 auto;   /* Center the container */
+    padding: 0 20px; /* Add some padding on the sides, adjust as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content like the portfolio section */
+    gap: 40px; /* Space between header, main, footer */
+}
+
+/* --- Header Section --- */
+.header-section {
+    width: 90%;
+    padding: 40px 0 0px 0; /* Adjust vertical padding */
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Center header items */
+    gap: 16px;
+}
+
+.header-content {
+    width: 100%;
+    max-width: 1250px; /* Match original intent */
+    display: flex;
+    justify-content: space-between; /* Space out logo and contact */
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 128; /* Gap between logo and contact area when wrapped */
+}
+
+.logo-area {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1; /* Allow logo area to grow */
+    min-width: 280px; /* Prevent it from becoming too small */
+}
+
+.logo-title-line {
+    display: flex;
+    align-items: center; /* Vertically align text and p5 sketch */
+    position: relative; /* Needed for positioning the p5 sketch */
+    height: 60px;
+}
+
+.logo-text {
+    color: black;
+    font-size: 48px;
+    font-family: 'Mattone', sans-serif; /* Specify fallback */
+    font-weight: 900;
+    word-wrap: break-word;
+    margin-right: 10px; /* Space before the 'O' */
+}
+
+.logo-o-placeholder {
+    /* This is where your p5 sketch will be placed. */
+    /* Size it appropriately with p5 or CSS */
+    position: relative;
+
+    top: 6.5px; 
+    left: -54px; 
+    
+
+    /* Adjust positioning if needed, but avoid large negative values */
+    /* Example fine-tuning: */
+    /* top: 5px; */
+    /* left: -10px; */
+}
+
+.logo-subtitle {
+    color: black;
+    font-size: 24px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.contact-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1; /* Allow contact area to grow */
+     min-width: 280px; /* Prevent it from becoming too small */
+}
+
+.contact-prompt {
+    font-size: 20px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.contact-prompt span:first-child {
+    font-weight: 700;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    gap: 16px;
+}
+
+.contact-button {
+    padding: 10px 15px; /* Adjust padding */
+    background: #ffffff;
+    border-radius: 2px;
+    outline: 1px black solid;
+    color: black;
+    font-size: 20px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+    text-align: center;
+    box-shadow:0px 0px 10px  #58585881 ;
+    transition:  300ms ease-in-out;
+
+}
+.contact-button:hover {
+    color: #ff00a2;
+    box-shadow:0px 0px 20px  #ff00a2 ;
+
+}
+
+
+
+.links-area {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    align-items: flex-start; /* Center links */
+    gap: 8px;
+    font-size: 24px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+}
+
+.link-cv {
+    text-decoration: underline;
+    transition: color 300ms ease-in-out;
+}
+
+.link-cv:hover {
+    color: #ff00a2; /* Add hover effect */
+}
+
+
+.skills-icons {
+    display: flex;
+    justify-content: flex-start; /* Center icons */
+    align-items: flex-end;
+    flex-wrap: wrap; /* Allow icons to wrap */
+    gap: 16px; /* Space between icons */
+    width: 100%;
+    max-width: 930px; /* Match original approx width */
+}
+
+.icon-box {
+    width: auto; /* Let content determine width */
+    min-width: 80px; /* Minimum width */
+    height: 45px;
+    padding: 5px;
+    background: white;
+    border-radius: 1px;
+    outline: 1px black solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px; /* Slightly smaller base size */
+    font-family: 'Work Sans', sans-serif; /* Or system emoji font */
+    font-weight: 700;
+    color: black;
+    box-shadow:0px 0px 20px #7d7d7d61 ;
+    transition: 300ms ease-in-out;
+
+
+
+}
+.icon-box:hover {
+
+    box-shadow:0px 0px 15px #f6a1f0eb ;
+
+}
+
+
+.tothetop {
+    width: auto; /* Let content determine width */
+    width: 60px; /* Minimum width */
+    height: 60px;
+    padding: 0px;
+    background: white;
+    border-radius: 1px;
+    outline: 1px black solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 40px; /* Slightly smaller base size */
+    font-family: 'Work Sans', sans-serif; /* Or system emoji font */
+    font-weight: 350;
+
+    color: black;
+    box-shadow:0px 0px 20px #59595961 ;
+
+    transition: 300ms ease-in-out;
+
+    position: fixed; 
+    bottom: 20px;
+    right: 50px; 
+
+}
+
+.tothetop:hover {
+    box-shadow:0px 0px 20px #f6a1f0eb ;
+
+}
+
+/* --- Portfolio Section --- */
+.portfolio-section {
+    width: 100%;
+    max-width: 863px; /* Original container width */
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Space between projects */
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.project-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Smaller gap for meta info */
+}
+
+.project-meta h1 { font-size: 18px; color: #555; font-weight: 400; }
+.project-meta h2 { font-size: 32px; font-weight: 700;font-family: 'Mattone'; }
+.project-meta h3 { font-size: 20px; font-weight: 500; font-family: 'Mattone'; }
+.project-meta h4 { font-size: 16px; font-weight: 400; color: #333; }
+
+.project-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Space between images/figures */
+}
+
+.project-gallery figure {
+    margin-bottom: 8px; /* Space below each image + caption block */
+}
+
+.project-gallery figcaption {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin-top: 8px;
+}
+
+/* Centered Images (adjust width as needed) */
+.image-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+.image-xsmall img { max-width: 350px; margin: 0 auto; }
+.image-small img { max-width: 400px; margin: 0 auto; } /* Increased size slightly */
+.image-medium img { max-width: 600px; margin: 0 auto; }
+.image-large img { max-width: 800px; margin: 0 auto; } /* Use for full width images if needed */
+
+/* Image Row */
+.image-row {
+    display: flex;
+    gap: 16px; /* Space between images in a row */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.image-row figure {
+    flex: 1; /* Make images share space */
+    min-width: 200px; /* Prevent images from becoming too small */
+}
+
+.project-divider {
+    border: none;
+    height: 1px;
+    background-color: #ccc; /* Light gray line */
+    margin: 40px 0; /* Add space around the divider */
+    /* Removed multiple hr tags, use margin/padding instead */
+}
+
+/* --- Footer --- */
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px; /* Space above footer */
+    border-top: 1px solid #eee; /* Optional top border */
+}
+
+.footer h6 {
+    text-align: left;
+    font-size: 12px;
+    color: #777;
+    font-weight: 400;
+}
+
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablet (e.g., <= 992px) */
+@media (max-width: 992px) {
+    .page-container {
+        padding: 0 15px;
+    }
+
+    .header-content {
+       justify-content: flex-start; /* Center logo and contact when wrapped */
+       text-align: flex-start;
+      gap: 24px;
+    }
+
+    .logo-area, .contact-area {
+        align-items: flex-start; /* Center items within these areas */
+        flex-basis: 100%; /* Allow full width when wrapped */
+    }
+
+    .logo-title-line{
+        justify-content: center;
+    }
+
+    .contact-links {
+        justify-content: center; /* Center contact buttons */
+    }
+
+     .portfolio-section {
+        max-width: 90%; /* Allow content to take more width */
+    }
+
+    .icon-box {
+        font-size: 28px;
+        min-width: 80px;
+    }
+}
+
+
+/* Mobile (e.g., <= 768px) */
+@media (max-width: 768px) {
+     .header-section {
+        padding: 30px 0 40px 0;
+        gap: 24px;
+    }
+
+    .logo-text {
+        font-size: 40px;
+    }
+
+     .logo-subtitle {
+        font-size: 20px;
+    }
+
+    .contact-prompt, .contact-button {
+        font-size: 18px;
+    }
+
+    .links-area {
+        font-size: 20px;
+    }
+
+    .skills-icons {
+        gap: 10px;
+    }
+
+    .icon-box {
+        font-size: 24px;
+        min-width: 80px;
+        height: 40px;
+        padding: 4px;
+    }
+
+    .project-meta h2 { font-size: 24px; }
+    .project-meta h3 { font-size: 18px; }
+    .project-meta h4 { font-size: 14px; }
+
+    .image-row {
+        flex-direction: column; /* Stack images in a row vertically */
+        gap: 16px;
+    }
+     .image-row figure {
+        min-width: 100%; /* Make stacked images full width */
+    }
+    .project-divider {
+        margin: 30px 0;
+    }
+}
+
+/* Smaller Mobile (e.g., <= 576px) */
+@media (max-width: 576px) {
+     .page-container {
+        padding: 0 10px;
+        gap: 20px;
+    }
+
+     .header-section {
+        padding: 20px 0 30px 0;
+        gap: 20px;
+    }
+
+    .logo-text {
+        font-size: 32px;
+    }
+
+    .logo-o-placeholder {
+        scale: 0.7;
+        top: 3px; 
+        left: -58px; 
+
+    }
+
+     .logo-subtitle {
+        font-size: 18px;
+    }
+
+     .contact-prompt, .contact-button {
+        font-size: 16px;
+    }
+     .contact-button {
+        padding: 8px 12px;
+     }
+
+    .links-area {
+        font-size: 18px;
+    }
+
+    .icon-box {
+        font-size: 22px;
+        min-width: 80px;
+        height: 35px;
+    }
+}
