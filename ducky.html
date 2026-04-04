@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ducky - Frizzanteo Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="Immagini-porfolio/favicon.jpg">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="page-wrapper" style="background-color: var(--bg-color);">
+        <div class="project-page">
+            <div class="project-top-nav">
+                <a href="index.html" class="pill-button">← Home</a>
+            </div>
+
+            <section class="project-hero bg-ducky">
+                <h1 class="project-hero-title">DUCKY</h1>
+                <span class="project-year">2022</span>
+                <div class="project-meta-info">
+                    <div class="project-meta-roles">
+                        Concept Design<br>
+                        3D Modeling<br>
+                        Rendering
+                    </div>
+                    <div class="project-meta-collaborators">
+                        UniFi<br>
+                        Giulio Dalla Porta
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-description">
+                <p>DUCKY is a group project developed during the third year of the Product Design Laboratory. We wanted
+                    to create a design language which makes robots more warm and friendly looking.</p>
+                <br>
+                <p>In fact, although the course had a strong focus on engineering, we decided to concentrate instead on
+                    the aesthetic, exploring how thoughtful design could help improve the social acceptance of robotic
+                    life forms in public environments.</p>
+                <br>
+                <p>That's how DUCKY was born — a robotic duck designed for public gardens, equipped with multiple facial
+                    expressions, sounds, and interactive behaviors to create a sense of familiarity and playfulness.</p>
+            </section>
+
+            <section class="project-gallery-grid">
+                <div class="gallery-cover">
+                    <!-- Ducky top large image -->
+                    <img src="Immagini-porfolio/DUCKY/ducky-protoforma.jpg" alt="Ducky Protoforma">
+                </div>
+                <div class="gallery-row">
+                    <div class="gallery-half">
+                        <!-- Small square 1 -->
+                        <img src="Immagini-porfolio/DUCKY/ducky-expressions.jpg" alt="Ducky expression">
+                    </div>
+                    <div class="gallery-half">
+                        <!-- Small square 2 -->
+                        <img src="Immagini-porfolio/DUCKY/ducky-cover.jpg" alt="Ducky cover preview">
+                    </div>
+                </div>
+                <div class="gallery-cover">
+                    <!-- Medium wide image -->
+                    <img src="Immagini-porfolio/DUCKY/ducky-comparison.jpg" alt="Ducky comparison">
+                </div>
+            </section>
+
+            <footer class="site-footer" style="padding-top: 80px;">
+                <p class="font-mattone">frizzanteo</p>
+                <a href="mailto:antonazzomatteo01@gmail.com.com"
+                    class="font-inter font-light underline">antonazzomatteo01@gmail.com</a>
+                <div class="link-buttons" style="margin-top: 10px;">
+                    <a href="https://www.linkedin.com/in/matteo-antonazzo-b685b51b2/" target="_blank"
+                        class="pill-button">LinkedIn ↗︎</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

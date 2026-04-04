@@ -1,492 +1,463 @@
-/* --- Base Styles & Resets --- */
-* {
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-    margin: 0;
-    padding: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Work+Sans:wght@500;900&display=swap');
 
- /*div {
-
-    border: 1px solid black;
-
-}*/
-
-body {
-    font-family: 'Work Sans', sans-serif; /* Default font */
-    line-height: 1.6;
-    color: black;
-    background-color: white;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+@font-face {
+    font-family: 'Mattone';
+    src: url("./fonts/Mattone-Bold.woff2") format("woff2");
+    font-weight: 700;
 }
 
 @font-face {
     font-family: 'Mattone';
-    src: url("./fonts/Mattone-Bold.woff2") format("woff2"); 
+    src: url("./fonts/Mattone-Bold.woff2") format("woff2");
+    font-weight: 400;
+    /* Reusing bold for regular since it's the only one available, styling implies it */
 }
 
-html {
-    scroll-behavior: smooth;
-  }
-  
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --border-color: #000000;
+    --ducky-bg: #ff6e19;
+    --info-bg: #be90cd;
+    --molto-bg: #333333;
+    /* In dark mode, maybe invert? Let's keep it black and text white */
+    --cf-bg: #ff3694;
+    --aeking-bg: #007ef6;
+    --mama-bg: #ff1919;
+}
 
-img {
-    max-width: 100%; /* Make images responsive by default */
-    height: auto;   /* Maintain aspect ratio */
-    display: block; /* Remove extra space below images */
-    padding-bottom: 20px; padding-top: 20px;
+[data-theme="dark"] {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --border-color: #ffffff;
+}
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: normal;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
 }
 
 a {
-    color: inherit; /* Inherit text color */
-    text-decoration: none; /* Remove underline by default */
+    color: inherit;
+    text-decoration: none;
 }
 
-/* --- Font Imports (Ensure you have these or use web fonts) --- */
-/* @font-face { font-family: Mattone; src: url('path/to/mattone.woff2'); font-weight: 900; } */
-/* @font-face { font-family: 'Work Sans'; src: url('path/to/worksans-regular.woff2'); font-weight: 400; } */
-/* @font-face { font-family: 'Work Sans'; src: url('path/to/worksans-bold.woff2'); font-weight: 700; } */
+/* Typography Utility Classes */
+.font-mattone {
+    font-family: 'Mattone', sans-serif;
+}
 
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
 
-/* --- Page Container --- */
-.page-container {
-    width: 100%;
-    max-width: 1440px; /* Optional: Limit max width on very large screens */
-    margin: 0 auto;   /* Center the container */
-    padding: 0 20px; /* Add some padding on the sides, adjust as needed */
+.font-work {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.font-light {
+    font-weight: 300;
+}
+
+.font-regular {
+    font-weight: 400;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.font-black {
+    font-weight: 900;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+/* Layout Wrappers */
+.page-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content like the portfolio section */
-    gap: 40px; /* Space between header, main, footer */
-    overflow-x: hidden
-}
-
-/* --- Header Section --- */
-.header-section {
-    width: 90%;
-    padding: 40px 0 0px 0; /* Adjust vertical padding */
-    background: white;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Center header items */
-    gap: 16px;
-}
-
-.header-content {
-    width: 100%;
-    max-width: 1250px; /* Match original intent */
-    display: flex;
-    justify-content: space-between; /* Space out logo and contact */
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 128; /* Gap between logo and contact area when wrapped */
+    width: 100%;
+    min-height: 100vh;
 }
 
-.logo-area {
+.content-container {
+    width: 100%;
+    max-width: 440px;
+    /* Designed essentially mobile-first or centered column */
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    flex: 1; /* Allow logo area to grow */
-    min-width: 280px; /* Prevent it from becoming too small */
+    align-items: center;
 }
 
-.logo-title-line {
+@media (min-width: 768px) {
+    .content-container {
+        max-width: 800px;
+    }
+}
+
+/* Home Section Styles */
+.hero-section {
+    padding: 80px 20px 40px;
     display: flex;
-    align-items: center; /* Vertically align text and p5 sketch */
-    position: relative; /* Needed for positioning the p5 sketch */
-    height: 60px;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+    width: 100%;
+}
+
+.hero-top-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.link-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.pill-button {
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 8px 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 15.78px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.pill-button:hover,
+.pill-button.active {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+.theme-toggle {
+    width: 40px;
+    height: 50px;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    background-color: transparent;
+}
+
+[data-theme="light"] .theme-toggle {
+    background-image: url('./icons/switch-light.svg');
+}
+
+[data-theme="dark"] .theme-toggle {
+    background-image: url('./icons/switch-dark.svg');
+}
+
+.hero-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    width: 255px;
+}
+
+.hero-logo-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .logo-text {
-    color: black;
-    font-size: 48px;
-    font-family: 'Mattone'; /* Specify fallback */
-    font-weight: 900;
-    word-wrap: break-word;
-    margin-right: 10px; /* Space before the 'O' */
+    font-family: 'Mattone', sans-serif;
+    font-size: 100.21px;
+    line-height: 95.54px;
 }
 
-.logo-o-placeholder {
-    /* This is where your p5 sketch will be placed. */
-    /* Size it appropriately with p5 or CSS */
-    position: relative;
-
-    top: 6.5px; 
-    left: -94px; 
-    
-
-    /* Adjust positioning if needed, but avoid large negative values */
-    /* Example fine-tuning: */
-    /* top: 5px; */
-    /* left: -10px; */
+.logo-sketch-container {
+    position: absolute;
+    bottom: -36px;
+    left: 108px;
+    /* Adjust left offset perfectly to center on 'o' */
+    transform: scale(1.6);
+    /* Scale it up significantly */
+    z-index: 10;
+    pointer-events: none;
 }
 
-.logo-subtitle {
-    color: black;
-    font-size: 24px;
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 400;
-    word-wrap: break-word;
+.hero-subtitle {
+    font-family: 'Mattone', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
 }
 
-.contact-area {
+.hero-contact {
+    font-family: 'Mattone', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    flex: 1; /* Allow contact area to grow */
-     min-width: 280px; /* Prevent it from becoming too small */
-}
-
-.contact-prompt {
-    font-size: 20px;
-    font-family: 'Work Sans', sans-serif;
-}
-
-.contact-prompt span:first-child {
-    font-weight: 700;
-}
-
-.contact-links {
-    display: flex;
-    flex-wrap: wrap; /* Allow buttons to wrap */
-    gap: 16px;
-}
-
-.contact-button {
-    padding: 10px 15px; /* Adjust padding */
-    background: #ffffff;
-    border-radius: 2px;
-    outline: 1px black solid;
-    color: black;
-    font-size: 20px;
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 400;
-    word-wrap: break-word;
-    text-align: center;
-    box-shadow:0px 0px 10px  #58585881 ;
-    transition:  300ms ease-in-out;
-
-}
-.contact-button:hover {
-    color: #ff00a2;
-    box-shadow:0px 0px 20px  #ff00a2 ;
-
-}
-
-
-
-.links-area {
-    display: flex;
-    flex-direction: column; /* Stack links vertically */
-    align-items: flex-start; /* Center links */
     gap: 8px;
-    font-size: 24px;
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 400;
 }
 
-.link-cv {
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 400;
+.mail-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
     text-decoration: underline;
-    transition: color 300ms ease-in-out;
 }
 
-.link-cv:hover {
-    color: #ff00a2; /* Add hover effect */
-}
-
-
-.skills-icons {
-    display: flex;
-    justify-content: flex-start; /* Center icons */
-    align-items: flex-end;
-    flex-wrap: wrap; /* Allow icons to wrap */
-    gap: 16px; /* Space between icons */
-    width: 100%;
-    max-width: 930px; /* Match original approx width */
-}
-
-.icon-box {
-    width: auto; /* Let content determine width */
-    min-width: 80px; /* Minimum width */
-    height: 45px;
-    padding: 5px;
-    background: white;
-    border-radius: 1px;
-    outline: 1px black solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px; /* Slightly smaller base size */
-    font-family: 'Work Sans', sans-serif; /* Or system emoji font */
-    font-weight: 700;
-    color: black;
-    box-shadow:0px 0px 20px #7d7d7d61 ;
-    transition: 300ms ease-in-out;
-
-
-
-}
-.icon-box:hover {
-
-    box-shadow:0px 0px 15px #f6a1f0eb ;
-
-}
-
-
-.tothetop {
-    width: auto; /* Let content determine width */
-    width: 60px; /* Minimum width */
-    height: 60px;
-    padding: 0px;
-    background: white;
-    border-radius: 1px;
-    outline: 1px black solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-background-color: white;
-    font-size: 40px; /* Slightly smaller base size */
-    font-family: 'Work Sans', sans-serif; /* Or system emoji font */
-    font-weight: 350;
-
-    color: black;
-    box-shadow:0px 0px 20px #59595961 ;
-
-    transition: 300ms ease-in-out;
-
-    position: fixed; 
-    bottom: 20px;
-    right: 20px; 
-
-}
-
-.tothetop:hover {
-    box-shadow:0px 0px 20px #f6a1f0eb ;
-
-}
-
-/* --- Portfolio Section --- */
-.portfolio-section {
-    width: 100%;
-    max-width: 863px; /* Original container width */
+/* Portfolio Nav */
+.portfolio-nav {
     display: flex;
     flex-direction: column;
-    gap: 40px; /* Space between projects */
-}
-
-.project {
-    display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 16px;
-}
-
-.project-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 4px; /* Smaller gap for meta info */
-}
-
-.project-meta h1 { font-size: 18px; color: #555; font-weight: 400; }
-.project-meta h2 { font-size: 32px; font-weight: 900;font-family: 'Mattone'; }
-.project-meta h3 { font-size: 20px; font-weight: 200; font-family: 'Mattone'; }
-.project-meta h4 { font-size: 16px; font-weight: 400; color: #333; }
-
-.project-gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 16px; /* Space between images/figures */
-}
-
-.project-gallery figure {
-    margin-bottom: 8px; /* Space below each image + caption block */
-}
-
-.project-gallery figcaption {
-    font-size: 14px;
-    color: #666;
-    text-align: center;
-    margin-top: 8px;
-}
-
-/* Centered Images (adjust width as needed) */
-.image-center {
-    margin-left: auto;
-    margin-right: auto;
-}
-.image-xsmall img { max-width: 350px; margin: 0 auto; }
-.image-small img { max-width: 400px; margin: 0 auto; } /* Increased size slightly */
-.image-medium img { max-width: 600px; margin: 0 auto; }
-.image-large img { max-width: 800px; margin: 0 auto; } /* Use for full width images if needed */
-
-/* Image Row */
-.image-row {
-    display: flex;
-    gap: 16px; /* Space between images in a row */
-    flex-wrap: wrap; /* Allow wrapping on small screens */
-}
-
-.image-row figure {
-    flex: 1; /* Make images share space */
-    min-width: 200px; /* Prevent images from becoming too small */
-}
-
-.project-divider {
-    border: none;
-    height: 1px;
-    background-color: #ccc; /* Light gray line */
-    margin: 40px 0; /* Add space around the divider */
-    /* Removed multiple hr tags, use margin/padding instead */
-}
-
-/* --- Footer --- */
-.footer {
+    padding: 0 26px;
     width: 100%;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px; /* Space above footer */
-    border-top: 1px solid #eee; /* Optional top border */
+    margin-bottom: 40px;
 }
 
-.footer h6 {
-    text-align: left;
-    font-size: 12px;
-    color: #777;
-    font-weight: 400;
+.portfolio-tags {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
 }
 
+.portfolio-tags-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+}
 
-/* --- Media Queries for Responsiveness --- */
-
-/* Tablet (e.g., <= 992px) */
-@media (max-width: 992px) {
-    .page-container {
-        padding: 0 15px;
-    }
-
-    .header-content {
-       justify-content: flex-start; /* Center logo and contact when wrapped */
-       text-align: flex-start;
-      gap: 24px;
-    }
-
-    .logo-area, .contact-area {
-        align-items: flex-start; /* Center items within these areas */
-        flex-basis: 100%; /* Allow full width when wrapped */
-    }
-
-    .logo-title-line{
+@media (min-width: 768px) {
+    .portfolio-tags {
+        flex-direction: row;
         justify-content: center;
-    }
-
-    .contact-links {
-        justify-content: center; /* Center contact buttons */
-    }
-
-     .portfolio-section {
-        max-width: 90%; /* Allow content to take more width */
-    }
-
-    .icon-box {
-        font-size: 28px;
-        min-width: 80px;
-    }
-}
-
-
-/* Mobile (e.g., <= 768px) */
-@media (max-width: 768px) {
-     .header-section {
-        padding: 30px 0 40px 0;
-        gap: 24px;
-    }
-
-    .logo-text {
-        font-size: 40px;
-    }
-
-     .logo-subtitle {
-        font-size: 20px;
-    }
-
-    .contact-prompt, .contact-button {
-        font-size: 18px;
-    }
-
-    .links-area {
-        font-size: 20px;
-    }
-
-    .skills-icons {
-        gap: 10px;
-    }
-
-    .icon-box {
-        font-size: 24px;
-        min-width: 80px;
-        height: 40px;
-        padding: 4px;
-    }
-
-    .project-meta h2 { font-size: 24px; }
-    .project-meta h3 { font-size: 18px; }
-    .project-meta h4 { font-size: 14px; }
-
-    .image-row {
-        flex-direction: column; /* Stack images in a row vertically */
+        flex-wrap: wrap;
         gap: 16px;
     }
-     .image-row figure {
-        min-width: 100%; /* Make stacked images full width */
-    }
-    .project-divider {
-        margin: 30px 0;
+
+    .portfolio-tags-row {
+        width: auto;
     }
 }
 
-/* Smaller Mobile (e.g., <= 576px) */
-@media (max-width: 576px) {
-     .page-container {
-        padding: 0 10px;
-        gap: 20px;
+/* Project Cards */
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.project-image-wrapper {
+    width: 100%;
+    height: 403px;
+    /* As per design */
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-card-footer {
+    padding: 20px 40px;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: white;
+}
+
+.project-card-footer h3 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
+    font-size: 32px;
+}
+
+.project-card-footer p {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* Specific Project Footer Colors */
+.bg-mama {
+    background-color: var(--mama-bg);
+}
+
+.bg-info {
+    background-color: var(--info-bg);
+}
+
+.bg-molto {
+    background-color: var(--molto-bg);
+}
+
+.bg-cf {
+    background-color: var(--cf-bg);
+}
+
+.bg-ducky {
+    background-color: var(--ducky-bg);
+}
+
+.bg-aeking {
+    background-color: var(--aeking-bg);
+}
+
+/* Footer generic */
+.site-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 10px;
+    width: 100%;
+    gap: 10px;
+}
+
+/* ---- Subpages Styles ---- */
+.project-page {
+    padding-top: 80px;
+    width: 100%;
+    max-width: 440px;
+}
+
+@media (min-width: 768px) {
+    .project-page {
+        max-width: 800px;
     }
+}
 
-     .header-section {
-        padding: 20px 0 30px 0;
-        gap: 20px;
-    }
+.project-top-nav {
+    padding: 19px 22px;
+    width: 100%;
+    display: flex;
+}
 
-    .logo-text {
-        font-size: 32px;
-    }
+.project-hero {
+    padding: 19px 22px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: white;
+}
 
-    .logo-o-placeholder {
-        scale: 0.7;
-        top: 3px; 
-        left: -90px; 
+.project-hero-title {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: normal;
+}
 
-    }
+.project-year {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+}
 
-     .logo-subtitle {
-        font-size: 18px;
-    }
+.project-meta-info {
+    display: flex;
+    gap: 16px;
+    font-size: 14px;
+}
 
-     .contact-prompt, .contact-button {
-        font-size: 16px;
-    }
-     .contact-button {
-        padding: 8px 12px;
-     }
+.project-meta-roles {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    width: 154px;
+}
 
-    .links-area {
-        font-size: 18px;
-    }
+.project-meta-collaborators {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
 
-    .icon-box {
-        font-size: 22px;
-        min-width: 80px;
-        height: 35px;
-    }
+.project-description {
+    padding: 24px 30px;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
 
+.project-gallery-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.gallery-cover {
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.gallery-cover img {
+    width: 100%;
+    display: block;
+}
+
+.gallery-row {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+}
+
+.gallery-half {
+    flex: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.gallery-half img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }

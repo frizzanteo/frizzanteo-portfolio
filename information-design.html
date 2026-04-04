@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Design - Frizzanteo Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="Immagini-porfolio/favicon.jpg">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <div class="project-page">
+            <div class="project-top-nav">
+                <a href="index.html" class="pill-button">← Home</a>
+            </div>
+
+            <section class="project-hero bg-info">
+                <h1 class="project-hero-title">INFORMATION<br>DESIGN</h1>
+                <span class="project-year">2022</span>
+                <div class="project-meta-info">
+                    <div class="project-meta-roles">
+                        Layout Design<br>
+                        Vector Illustration<br>
+                        Animation
+                    </div>
+                    <div class="project-meta-collaborators">
+                        UniBz<br>
+                        Alessia Musio<br>
+                        Alessia Formica<br>
+                        Gianviti Giulia<br>
+                        Ramos Marquez Monica
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-description">
+                <p>In the "Information Design and Visual Storytelling" course held by Alessia Musio, we decided to
+                    answer with data to the question "Is social media actually a bad thing for your mental health?". The
+                    result is a poster layouted as a newspaper page.</p>
+                <br>
+                <p>By analyzing scientific papers and academic articles, we created a final poster that offers an
+                    overview of the positive and negative relationships between social media use and mental health.
+                    Throughout this project, we deepened our understanding of data culture, learned how to use data to
+                    tell compelling stories, and explored new tools such as RawGraphs and Flourish.</p>
+                <br>
+                <p>For the storytelling component, we developed a data physicalization titled “85” — a collection of 85
+                    Instagram Reels printed on fabric. The number 85 represents the average number of Reels an Instagram
+                    user watches in a day.</p>
+            </section>
+
+            <section class="project-gallery-grid">
+                <div class="gallery-cover">
+                    <img src="Immagini-porfolio/DATAVIZ/dataviz-cover.jpg" alt="Dataviz Cover">
+                </div>
+                <div class="gallery-row">
+                    <div class="gallery-half">
+                        <img src="Immagini-porfolio/DATAVIZ/dataviz-esibizione1.jpg" alt="Dataviz Exhibition 1">
+                    </div>
+                    <div class="gallery-half">
+                        <img src="Immagini-porfolio/DATAVIZ/dataviz-esibizione2.jpg" alt="Dataviz Exhibition 2">
+                    </div>
+                </div>
+                <div class="gallery-cover">
+                    <img src="Immagini-porfolio/DATAVIZ/dataviz-poster.jpg" alt="Dataviz Poster">
+                </div>
+            </section>
+
+            <footer class="site-footer" style="padding-top: 80px;">
+                <p class="font-mattone">frizzanteo</p>
+                <a href="mailto:antonazzomatteo01@gmail.com.com"
+                    class="font-inter font-light underline">antonazzomatteo01@gmail.com</a>
+                <div class="link-buttons" style="margin-top: 10px;">
+                    <a href="https://www.linkedin.com/in/matteo-antonazzo-b685b51b2/" target="_blank"
+                        class="pill-button">LinkedIn ↗︎</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

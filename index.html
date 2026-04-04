@@ -1,317 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- <base href="/frizzanteo-portfolio/"> -->
-
-
-    <title>Frizzanteo</title>
-    <link rel="icon" type="image/x-icon" href="/Immagini-porfolio/favicon.jpg">
-
+    <title>Frizzanteo Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="Immagini-porfolio/favicon.jpg">
     <link rel="stylesheet" href="style.css">
 
-
     <script src="libraries/p5.min.js"></script>
-    <script src="libraries/p5.sound.min.js"></script>
     <script src="sketch.js"></script>
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-        </style>
+    <script>
+        // Light/Dark mode logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        });
 
-    <a href="#top"> <div class="tothetop" class ="fix"> ↑ </div> </a> 
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
 
+        let currentFilter = 'all';
+
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.portfolio-tags .pill-button');
+
+            if (currentFilter === category) {
+                currentFilter = 'all'; // reset
+            } else {
+                currentFilter = category;
+            }
+
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-filter') === currentFilter) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (currentFilter === 'all' || cardCategory === currentFilter) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </head>
 
 <body>
+    <div class="page-wrapper">
+        <section class="hero-section">
+            <div class="hero-top-links">
+                <div class="link-buttons">
+                    <a href="https://www.youtube.com/@FRIZZANTEO/featured" target="_blank" class="pill-button">YouTube
+                        ↗︎</a>
+                    <a href="https://www.linkedin.com/in/matteo-antonazzo-b685b51b2/" target="_blank"
+                        class="pill-button">LinkedIn ↗︎</a>
+                </div>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark Mode"></button>
+            </div>
 
-
-    <div class="page-container">
-
-        <header id="top" class="header-section">
-            <div class="header-content">
-                <div class="logo-area">
-                    <div class>
-                        <div class="logo-title-line">
-                        <div class="logo-text">frizzanteo</div>
-                        <div id="letteraO" class="logo-o-placeholder"> <a href="instagram.com">AAAAA</a>
-                        </div>
-                    
-                        </div>
-                        <div class="logo-subtitle">Tuttotondo designer</div>
-
+            <div class="hero-title-container">
+                <div class="hero-logo-wrapper">
+                    <div class="logo-text">
+                        friz<br>zan<br>teo
+                    </div>
+                    <div class="logo-sketch-container" id="letteraO">
+                        <!-- p5 outputs here -->
                     </div>
                 </div>
-                <div class="contact-area" >
-                    <p class="contact-prompt" style="font-weight: 700" > Want to talk? </p>
-                    <p class="contact-prompt" style="padding-bottom: 10px;"> Send me a mail at </p>
-                    <div class="contact-button">
-                        <p>antonazzomatteo01@gmail.com</p>
-                        </div>
+
+                <p class="hero-subtitle">tuttotondo designer</p>
+
+                <div class="hero-contact">
+                    <p>Contact me here,</p>
+                    <p>* cool projects only *</p>
+                    <a href="mailto:antonazzomatteo01@gmail.com" class="mail-link">antonazzomatteo01@gmail.com</a>
                 </div>
-                
             </div>
-            <div class="links-area">
-                <a href="https://www.linkedin.com/in/matteo-antonazzo-b685b51b2/" target="_blank" class="link-cv">Full curriculum → </a>
-                <span class="link-portfolio-label">Portfolio ↓</span>
+        </section>
+
+        <section class="portfolio-nav">
+            <p class="font-inter font-light text-center" style="font-size: 15.78px;">↓ ROBOANTE PORTFOLIO ↓</p>
+            <div class="portfolio-tags">
+                <div class="portfolio-tags-row">
+                    <!-- <div class="pill-button">Web Design</div> -->
+                    <div class="pill-button" data-filter="media" onclick="filterProjects('media')"
+                        style="cursor:pointer; transition: all 0.2s;">Media Design</div>
+                </div>
+                <div class="portfolio-tags-row">
+                    <div class="pill-button" data-filter="sustainable" onclick="filterProjects('sustainable')"
+                        style="cursor:pointer; transition: all 0.2s;">Sustainable Design</div>
+                </div>
+
             </div>
-            <div class="skills-icons">
-            
-                <a href="#ducky"> <div class="icon-box">🦆</div> </a> 
-                <a href="#aeking"> <div class="icon-box">🧑🏻‍🔧</div> </a> 
-                <a href="#dataviz"> <div class="icon-box">👀</div> </a> 
-                <a href="#cf"> <div class="icon-box">💅</div> </a> 
-                <a href="#mama"> <div class="icon-box">❤️</div> </a> 
-                <a href="#catalogo"> <div class="icon-box">🖥️</div> </a> 
-                <a href="#tappi"> <div class="icon-box">👂</div> </a>                
+        </section>
 
+        <section class="project-list content-container">
+            <a href="material-matters.html" class="project-card" data-category="sustainable">
+                <div class="project-image-wrapper">
+                    <img src="Immagini-porfolio/MATERIAL-MATTERS/mama-cave.jpg" alt="Material Matters Cover">
                 </div>
-
-            
-
-        </header>
-
-        <main class="portfolio-section">
-
-
-            <article class="project">
-                <div id="sito" class="project-meta">
-                     <h1>2025</h1>
-                     <h2>This website</h2>
-                     <h3>exploring coding and pioneer workflows </h3>
-                     <h4>Portfolio project</h4>
-                     <h4>Role: UI design, Figma Prototyping, Vibe Coding, coding: HTML, CSS, GitHub, P5js</h4>
-                     <figure>
-                        <p> I was in need of a portfolio but I did not want to pay monthly for a website builder.<strong> That's why I decided to code it my-self! </strong> After studying HTML and CSS, I was able to understand web design and develope this project integrating also innovative AI workflows.</p>
-
-                        <a href="  https://www.youtube.com/watch?v=oFEalCBbjzE&t=443s" target="_blank" class="link-cv">  <p clas="link-cv">Workflow explanation on my youtube channel</p> </a>                     
-
-
-                    </figure>
-
-
-
-                
-                    </article>
-    
-
-            <article class="project">
-                <div id="ducky" class="project-meta">
-                    <h1>2022</h1>
-                    <h2>DUCKY</h2>
-                    <h3>Friendly perception of robot assistants</h3>
-                    <h4>In collaboration with: UniFi, Giulio Dalla Porta</h4>
-                    <h4>Role: Concept Design, 3D Modeling, Rendering</h4>
+                <div class="project-card-footer bg-mama">
+                    <h3>MATERIAL MATTERS</h3>
+                    <p>Foundig and managing a material initiative</p>
                 </div>
-                <div class="project-gallery">
-                   
-                        <img src="Immagini-porfolio/DUCKY/ducky-protoforma.jpg" alt="Ducky Protoforma" />
-                        <p>DUCKY is a group project developed during the third year of the Product Design Laboratory.
-                            We wanted to create a design language which makes robots more warm and friendly looking. </p>
-                 
-                    
-                         <img src="Immagini-porfolio/DUCKY/ducky-cover.jpg" alt="Ducky Expressions" />
-                         <p>In fact, although the course had a strong focus on engineering, we decided to concentrate instead on the aesthetic, exploring how thoughtful design could help improve the social acceptance of robotic life forms in public environments.</p>
+            </a>
 
-            
-                        <img src="Immagini-porfolio/DUCKY/ducky-comparison.jpg" alt="Ducky Comparison" />
-                        <p>That's how DUCKY was born — a robotic duck designed for public gardens, equipped with multiple facial expressions, sounds, and interactive behaviors to create a sense of familiarity and playfulness.</p>
-                         <img src="Immagini-porfolio/DUCKY/ducky-expressions.jpg " alt="Ducky Cover" />
+            <a href="information-design.html" class="project-card" data-category="media">
+                <div class="project-image-wrapper">
+                    <img src="Immagini-porfolio/DATAVIZ/dataviz-cover.jpg" alt="Information Design Cover">
                 </div>
-                <hr class="project-divider">
-            </article>
-
-            <article class="project">
-                <div id="aeking" class="project-meta">
-                     <h1>2023</h1>
-                     <h2>AEKING</h2>
-                     <h3>design for the repair society</h3>
-                     <h4>Bachelor degree Project supervised by Prof. Marco Marseglia and Phd Cantini Francesco</h4>
-                     <h4>Role: Graphic Design, Brand Identity, Figma UX/UI Prototyping, 3D Modeling, Rendering</h4>
-                 </div>
-                 <div class="project-gallery">
-                         <img src="Immagini-porfolio/AEKING/aeking- flusso.png" alt="AEKING Website Mockup" />
-                         <p>AEKING is my bachelor’s graduation project — a fictional utopian scenario based on IKEA. The thesis explores how sustainable end-of-life flows can be created for IKEA furniture through community-led hacking practices, with the ultimate goal of avoiding landfill waste entirely. .</p>
-                  
-                         <img src="Immagini-porfolio/AEKING/website-mockup.png" alt="AEKING Flow" />
-                         <p>To bring this concept to life, I designed a mock IKEA web platform, along with its visual identity and graphic guidelines. The platform allows users to creatively extend the lifespan of their furniture in multiple ways.</p>
-                    
-                     <div class="image-center image-xsmall">
-                         <img src="Immagini-porfolio/AEKING/website-phone.png" alt="AEKING Website Phone" />
-                         <p>On the platform, users can take three types of actions: preserve, repair, or revalue old furniture. Each of these actions forms the basis of a distinct circular economy model, all designed to make these sustainable cycles economically viable and competitive.</p>
-                     </div>
-                         <img src="Immagini-porfolio/AEKING/dorik-render.jpg" alt="AEKING Dorik Render" />
-                         <p>During this project I was really attracted to the philosophy of "hacking" objects, especially the ones that are common, like the famous BILLY. DORIK, is a open source 3D hack which helps to avoid chipboards shelves from bending. </p>
-                     <div class="image-center image-medium">
-                         <img src="Immagini-porfolio/AEKING/dorik-fakebox.png" alt="AEKING Dorik Fakebox" />
-                         <a href="https://github.com/frizzanteo/frizzanteo-portfolio/tree/main/DORIK3Dmodel" target="_blank" class="link-cv"> 
-                            <p clas="link-cv">Get your DORIK 3D file here</p> </a> 
-                     </div>
-                 </div>
-                 <hr class="project-divider">
-            </article>
-
-            <article class="project">
-                <div id="dataviz" class="project-meta">
-                     <h1>2024</h1>
-                     <h2>Is social media actually bad?</h2>
-                     <h3>Data visualization of social media perception</h3>
-                     <h4>In collaboration with: UniBz, Alessia Formica, Gianviti Giulia, Ramos Marquez Monica</h4>
-                     <h4>Role: Layout Design, Vector Illustration</h4>
-                 </div>
-                 <div class="project-gallery">
-                  
-                         <img src="Immagini-porfolio/DATAVIZ/dataviz-cover.jpg" alt="Dataviz Cover" />
-                         <p>In the "Information Design and Visual Storytelling" course held by Alessia Musio, we decided to answer with data to the question "Is social media actually a bad thing for your mental health?". The result is a poster layouted as a newspaper page. </p>
-                     </figure>
-                     <figure class="project-gallery">
-                         <img src="Immagini-porfolio/DATAVIZ/dataviz-poster.jpg" alt="Dataviz Poster" />
-                     </figure>
-                     <p> By analyzing scientific papers and academic articles, we created a final poster that offers an overview of the positive and negative relationships between social media use and mental health.
-                        Throughout this project, we deepened our understanding of data culture, learned how to use data to tell compelling stories, and explored new tools such as RawGraphs and Flourish.</p>
-
-                     <div class="image-row">
-                         <figure>
-                             <img src="Immagini-porfolio/DATAVIZ/dataviz-esibizione1.jpg" alt="Dataviz Exhibition 1" />
-                         </figure>
-                         <figure>
-                            <img src="Immagini-porfolio/DATAVIZ/dataviz-esibizione2.jpg" alt="Dataviz Exhibition 2" />
-                         </figure>
-                     </div>
-                     <p>For the storytelling component, we developed a data physicalization titled “85” — a collection of 85 Instagram Reels printed on fabric. The number 85 represents the average number of Reels an Instagram user watches in a day.</p> 
-                    </div>
-                 <hr class="project-divider">
-            </article>
-
-
-            <article class="project">
-                 <div id="cf" class="project-meta">
-                     <h1>2024</h1>
-                     <h2>CAREFULL INSTRUMENTS</h2>
-                     <h3>anthropological approach to product design </h3>
-                     <h4>In collaboration with: UniBz, Stahl Maximilian Carl, Palacios Armesto Maria, Printr Chatjaroenchaikul</h4>
-                     <h4>Role: Brand Identity</h4>
-                 </div>
-                 <div class="project-gallery">
-                     <figure>
-                         <img src="Immagini-porfolio/CAREFULL-INSTRUMENTS/cf-playtest.jpg" alt="Carefull Instruments Playtest" />
-                         <p>The CARE(FULL) INSTRUMENTS project is a collaborative work that involved OfficineVispa in the Don Bosco Community of Bolzano. Utilizing an ethnographic approach, the project engaged with social workers form OfficineVispa, using role play methods to develope the final design. The brief consisted in developing games for a method called "Apprendimento esperenziale".</p>
-                     </figure>
-                     <figure>
-                         <img src="Immagini-porfolio/CAREFULL-INSTRUMENTS/cf-pakcaging.jpg" alt="Carefull Instruments Packaging" />
-                         <p> The "TUBE RUN" is 1 out of the 4 games we developed togheter, which express at his best the CI of this project. The CMF is approached from a limit perspective: we decided to use only cardboard tubes offcuts from print shop to develope the game. Therefore, the finishing choice was fundamental: a bright color and a silky touch feel. The game, also, is contained in a practical net that can be opened by pulling a cord, spreading all the tubes on the ground. The net is up-cycled from apple industry present in South Tyrol, where the project was developed.</p>
-                     </figure>
-                     <figure>
-                         <img src="Immagini-porfolio/CAREFULL-INSTRUMENTS/cf-kit.jpg" alt="Carefull Instruments Kit" />
-                         <p>The scalable version of the project takes shape in a wooden box which contains the tools to create the games and a complete guide with instructions. Right now Officine Vispa is using the project and some blueprints are already shared in the social workers network in Trento.</p>
-                     </figure>
-                 </div>
-                 <hr class="project-divider">
-             </article>
-
-            <article class="project">
-                <div id="mama" class="project-meta">
-                    <h1>2024</h1>
-                    <h2>Material Matters!</h2>
-                    <h3>eco-social enterpreneurship </h3>
-                    <h4>In collaboration with: UniBz, Workshop Staff, Prof. Aart Van Bezojien, Material Matters community</h4>
-                    <h4>Role: Founder, Manager, Brand Identity</h4>
+                <div class="project-card-footer bg-info">
+                    <h3>INFORMATION DESIGN</h3>
+                    <p>Fair representation of data of social media use and their consequence on human interactions</p>
                 </div>
-                <div class="project-gallery">
-                    <figure>
-                        <img src="Immagini-porfolio/MATERIAL-MATTERS/mama-cave.jpg" alt="Material Matters Cave" />
-                        <p>“MaMa” stands for Material Matters. Is a no profit association, UniBz student runned, which aim to reduce waste produced in the context of the university of Bolzano, and teach students sustainable design principle. In design school, a lot of offcuts are produced due to the model making process: what we do is collect, sort and stock all of those offcuts that are still usable and organize them as they are in a shop, improving accessibility to the material. </p>
-                    </figure>
-                    <figure>
-                        <img src="Immagini-porfolio/MATERIAL-MATTERS/mama-kart.jpg" alt="Material Matters Kart" />
-                        <p> Time by time, a community was created. One of the coolest thing we have done was developing a kart system for the university with the XYZ system together with his creator, Till Wolfer. In this photo you can see some of the people that runs the iniatitve, which now counts more than 20 people.</p>
-                        <a href="https://www.instagram.com/mama.unibz/" target="_blank" class="link-cv">  <p clas="link-cv">You can follow the project here</p> </a> 
+            </a>
 
-                    </figure>
-
-                    <p> I developed also the website of the initiative, down here you can see the home page.</p>
-
-             <img src="Immagini-porfolio/MATERIAL-MATTERS/material_matters_website-landingpage.jpeg" alt="Material Matters website" />
-
-                      <p clas="link-cv">You can visit it yourself at the following link: <a href="https://mamabz.com" target="_blank" class="link-cv"> mamabz.com </p> </a> 
-
+            <a href="moltitudine.html" class="project-card" data-category="sustainable">
+                <div class="project-image-wrapper">
+                    <img src="Immagini-porfolio/MOLTITUDINE/moltitudine-cover.jpg" alt="Moltitudine Cover">
                 </div>
-                 <hr class="project-divider">
-            </article>
-
-
-                    <article class="project">
-                <div id="catalogo" class="project-meta">
-                     <h1>2025</h1>
-                     <h2>CUPIDO</h2>
-                     <h3>AI automated catalogin for second-hand materials</h3>
-                     <h4>Master degree project</h4>
-                     <h4>Role: UI design, Figma Prototyping, Prompt Engenering, Artificial Intelligence</h4>
-                     <figure>
-                          <img src="Immagini-porfolio/MATERIAL-MATTERS/cupido-dashboard.png" alt="AI pipeline" />
-                        <p> For my master degree I developed an AI automated Catalogued for a second-hand material initiatives. The platform use a "1 picture approach" to obtain data from the image, simplifying the cataloging and upload process for the database manager.</p> 
-
-                          <a href="https://mamacatalogue.com/" target="_blank" class="link-cv">  <p clas="link-cv">The platform is accessible from at this link</p> </a>  
-                        
-                        
-                        <img src="Immagini-porfolio/MATERIAL-MATTERS/AI pipeline.jpg" alt="Landing page" />
-
-                        <p>Through an API key, the software is able to extract the requested information and fill in the database through a JSON sorter. The implementation of AI drastically reduced the time needed to catalogue items.The platform was developed in collaboration with a software engeneer, using the frameworks REACT for the front-end and DJANGO for the Backend.</p>
-
-                        <img src="Immagini-porfolio/MATERIAL-MATTERS/material-matters-cupido-landing.png">
-                        
-                        <p> The entries are then displayed on the landing page. It was possible to realize the project thanks also to the 2.000€ grant received from the Youth Office of the Bolzano Province through the call "Tabula Rasa".</p>                 
-
-
-                    </figure>
-
-
-
-                
-                    </article>
-
-
-            <article class="project">
-                <div id="tappi" class="project-meta">
-                    <h1>2024</h1>
-                    <h2>MOLTITUDINE</h2>
-                    <h3>turning preconsumer waste into a surface</h3>
-                    <h4>In collaboration with: UniBz, Prof. Aart Van Bezojien</h4>
-                    <h4>Role: Concept Desing, Model Making</h4>
+                <div class="project-card-footer bg-molto">
+                    <h3>MOLTITUDINE</h3>
+                    <p>turning preconsumer waste into a surface</p>
                 </div>
-                <div class="project-gallery">
-                    <figure>
-                        <img src="Immagini-porfolio/MOLTITUDINE/moltitudine-cover.jpg" alt="Moltitudine Cover" />
-                        <p>MOLTITUDINE is a material exploration of a new surface, where waste from the earplug industry with shape memory characteristics are repurposed to create a soft and colorful surface.</p>
-                    </figure>
-                    <figure>
-                        <img src="Immagini-porfolio/MOLTITUDINE/moltitudine-sketch.jpg" alt="Moltitudine Sketch" />
-                        <p> The earplugs are embedded in a Kraftplex matrix (a glue-free multilayer paper material), allowing the possibility of separating the matrix from the polyurethane foam components, facilitating future destructive disassembly (using water paper fall apart easily).</p>
-                     </figure>
-                     <figure class="project-gallery">
-                         <img src="Immagini-porfolio/MOLTITUDINE/moltitudine-microstructure.jpg" alt="Moltitudine Microstructure" />
-                         <p>The project makes possible to reuse pre-consumer waste in polyurethane foam that would otherwise be destined for waste-to-energy or landfill. The project also develops from an innovative method: only after the study of the waste and its characteristics (even on a microscopic level) the developement of the design start. </p>
-                     </figure>
-                     <figure>
-                         <img src="Immagini-porfolio/MOLTITUDINE/moltitudine-packaging.jpg" alt="Moltitudine Packaging" />
-                         <p>The packaging designed for the project consists in a do-it-yourself kit concept, where the final user can build the surface and "hack"" a seat or backrest.</p>
-                     </figure>
+            </a>
+
+            <a href="carefull-instruments.html" class="project-card" data-category="sustainable">
+                <div class="project-image-wrapper">
+                    <img src="Immagini-porfolio/CAREFULL-INSTRUMENTS/cf-playtest.jpg" alt="Carefull Instruments Cover">
                 </div>
-                 <hr class="project-divider">
-            </article>
+                <div class="project-card-footer bg-cf">
+                    <h3>CAREFULL INSTRUMENTS</h3>
+                    <p>anthropological approach to product design</p>
+                </div>
+            </a>
 
+            <a href="ducky.html" class="project-card" data-category="media">
+                <div class="project-image-wrapper">
+                    <img src="Immagini-porfolio/DUCKY/ducky-cover.jpg" alt="Ducky Cover">
+                </div>
+                <div class="project-card-footer bg-ducky">
+                    <h3>DUCKY</h3>
+                    <p>How to change robot perception through gentle shapes and good interaction design</p>
+                </div>
+            </a>
 
+            <a href="aeking.html" class="project-card" data-category="sustainable">
+                <div class="project-image-wrapper" style="background-color: white;">
+                    <img src="Immagini-porfolio/AEKING/aeking- flusso.png" alt="Aeking Cover">
+                </div>
+                <div class="project-card-footer bg-aeking">
+                    <h3>AEKING</h3>
+                    <p>A fake proposal for fast furniture reuse</p>
+                </div>
+            </a>
+        </section>
 
-
-
-        </main>
-
-        <footer class="footer">
-            <h6 > Driven by limits.</h6>
-             <h6> Credits: FONT 'Mattone' : Nunzio Mazzaferro, Collletttivo; FONT 'Work Sans' : Wei Huang <h6>
+        <footer class="site-footer">
+            <p class="font-mattone">frizzanteo</p>
+            <a href="mailto:antonazzomatteo01@gmail.com"
+                class="font-inter font-light underline">antonazzomatteo01@gmail.com</a>
+            <div class="link-buttons" style="margin-top: 10px;">
+                <a href="https://www.linkedin.com/in/matteo-antonazzo-b685b51b2/" target="_blank"
+                    class="pill-button">LinkedIn ↗ </a>
+            </div>
         </footer>
+    </div>
+</body>
 
-    </div> </body>
 </html>
