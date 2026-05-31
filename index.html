@@ -11,50 +11,7 @@
     <script src="libraries/p5.min.js"></script>
     <script src="sketch.js"></script>
 
-    <script>
-        // Light/Dark mode logic
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        });
-
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-        }
-
-        let currentFilter = 'all';
-
-        function filterProjects(category) {
-            const cards = document.querySelectorAll('.project-card');
-            const buttons = document.querySelectorAll('.portfolio-tags .pill-button');
-
-            if (currentFilter === category) {
-                currentFilter = 'all'; // reset
-            } else {
-                currentFilter = category;
-            }
-
-            buttons.forEach(btn => {
-                if (btn.getAttribute('data-filter') === currentFilter) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-
-            cards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-                if (currentFilter === 'all' || cardCategory === currentFilter) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
+    <script src="main.js"></script>
 </head>
 
 <body>
@@ -89,16 +46,16 @@
         </section>
 
         <section class="portfolio-nav">
-            <p class="font-inter font-light text-center" style="font-size: 15.78px;">↓ ROBOANTE PORTFOLIO ↓</p>
+            <a href="press.html" class="font-inter text-center press-link">PRESS ✍︎</a>
+            <p class="font-inter font-light text-center portfolio-subtitle">↓ ROBOANTE PORTFOLIO ↓</p>
             <div class="portfolio-tags">
                 <div class="portfolio-tags-row">
                     <!-- <div class="pill-button">Web Design</div> -->
-                    <div class="pill-button" data-filter="media" onclick="filterProjects('media')"
-                        style="cursor:pointer; transition: all 0.2s;">Media Design</div>
+                    <div class="pill-button" data-filter="media" onclick="filterProjects('media')">Media Design</div>
                 </div>
                 <div class="portfolio-tags-row">
-                    <div class="pill-button" data-filter="sustainable" onclick="filterProjects('sustainable')"
-                        style="cursor:pointer; transition: all 0.2s;">Sustainable Design</div>
+                    <div class="pill-button" data-filter="sustainable" onclick="filterProjects('sustainable')">
+                        Sustainable Design</div>
                 </div>
 
             </div>
@@ -156,12 +113,12 @@
             </a>
 
             <a href="aeking.html" class="project-card" data-category="sustainable">
-                <div class="project-image-wrapper" style="background-color: white;">
-                    <img src="Immagini-porfolio/AEKING/aeking- flusso.png" alt="Aeking Cover">
+                <div class="project-image-wrapper bg-white">
+                    <img src="Immagini-porfolio/AEKING/website-mockup.png" alt="Aeking Cover">
                 </div>
                 <div class="project-card-footer bg-aeking">
                     <h3>AEKING</h3>
-                    <p>A fake proposal for fast furniture reuse</p>
+                    <p>A proposal for fast furniture reuse</p>
                 </div>
             </a>
         </section>

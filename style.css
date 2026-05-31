@@ -149,7 +149,8 @@ a {
     align-items: center;
     justify-content: center;
     white-space: nowrap;
-    transition: background-color 0.2s, color 0.2s;
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
 .pill-button:hover,
@@ -460,4 +461,45 @@ a {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+/* Custom classes extracted from inline styles */
+.project-footer {
+    padding-top: 80px;
+}
+
+.press-footer {
+    padding-top: 120px;
+}
+
+.press-link {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    text-decoration: underline;
+    color: inherit;
+}
+
+.portfolio-subtitle {
+    font-size: 15.78px;
+}
+
+.press-description {
+    font-size: 15.78px;
+    margin-top: 100px;
+}
+
+.press-article-link {
+    text-decoration: underline;
+    font-weight: bold;
+    color: inherit;
+}
+
+.project-image-wrapper.bg-white {
+    background-color: white;
+}
+
+.press-top-nav {
+    margin-bottom: 40px;
 }
