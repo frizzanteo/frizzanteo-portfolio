@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+  <link rel="shortcut icon" href="../favicon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ducky · frizzanteo</title>
+  <meta name="description"
+    content="Ducky — Can we make robots less uncanny? A concept design project exploring friendly robot aesthetics for urban waste collection." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preload" href="../fonts/Mattone-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <script src="../libraries/gsap.min.js" defer></script>
+  <script src="../libraries/ScrollTrigger.min.js" defer></script>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════ -->
+  <header class="nav-wrapper" role="banner">
+    <nav class="navbar" aria-label="Primary navigation">
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link" id="nav-home">Home</a>
+        <a href="../index.html#archivio" class="nav-link" id="nav-portfolio">Portfolio</a>
+        <a href="../about.html" class="nav-link" id="nav-about">About</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="project-detail">
+
+    <!-- ─── Hero ─── -->
+    <section class="proj-hero">
+      <div class="proj-hero-header">
+        <span class="proj-hero-tag">Concept Design · 2022</span>
+        <h1 class="proj-hero-title">Ducky</h1>
+        <p class="proj-hero-subtitle">Can we make robots less uncanny?</p>
+      </div>
+      <div class="proj-hero-img-wrap">
+        <img src="../images/pagecontent/DUCKY/Ducky Cover.png" alt="Ducky — 3D render of the robot companion"
+          class="proj-hero-img" />
+      </div>
+    </section>
+
+    <!-- ─── Intro ─── -->
+    <section class="proj-section">
+      <div class="proj-text-block">
+        <p class="proj-lead">
+          Humans are trying to make robots look as human as possible, literally, but is this what actually works?
+          With my colleague Giulio Dalla Porta we tried to envision a more friendly robot aesthetic.
+        </p>
+      </div>
+    </section>
+
+    <hr class="proj-divider" />
+
+    <!-- ─── The Brief ─── -->
+    <section class="proj-section">
+      <div class="proj-text-block">
+        <h2 class="proj-heading">The Brief</h2>
+        <p>
+          The brief of the project was to develop a concept of a robotic element for the urban life of the future. We
+          decided to focus on waste collection and specifically on the littering issue. We decided to go for a
+          "companion" that can blend in the urban life and act as an inhabitant of the city itself.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── Research images — nature inspiration ─── -->
+    <section class="proj-section">
+      <div class="proj-img-row proj-img-row--3">
+        <figure class="proj-fig">
+          <img src="../images/pagecontent/DUCKY/CleanShot 2026-08-11 at 11.28.26@2x 1.jpg"
+            alt="Nature inspiration — poison dart frog" />
+          <figcaption>Nature as inspiration for friendly, colorful forms</figcaption>
+        </figure>
+        <figure class="proj-fig">
+          <img src="../images/pagecontent/DUCKY/Rectangle 4.jpg" alt="Early 3D model of Ducky walking" />
+          <figcaption>Early 3D model exploration</figcaption>
+        </figure>
+        <figure class="proj-fig">
+          <img src="../images/pagecontent/DUCKY/Rectangle 6.jpg" alt="Multiple angles of Ducky model" />
+          <figcaption>Multiple angles of the companion</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ─── Design Process ─── -->
+    <section class="proj-section">
+      <div class="proj-text-block">
+        <h2 class="proj-heading">Design Process</h2>
+        <p>
+          In the beginning we put a lot of effort in understanding what was not working with already existing robots.
+          Robots like "Sofia" or "Spot" are very uncanny and tend to scare most of the people. In a way they feel
+          wrong. Other designs instead, specifically the ones coming from toy design, tend to be more familiar and
+          joyful.
+        </p>
+        <p>
+          After sketching and some physical models, we realized the first shapes of the robot. We used soft curves and
+          colored parts to communicate playfulness, like in toy design.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── Sketches ─── -->
+    <section class="proj-section">
+      <div class="proj-img-full">
+        <figure class="proj-fig">
+          <img src="../images/pagecontent/DUCKY/DUCKY_1 1.jpg"
+            alt="Early concept sketches of Ducky with exploded view and scale reference" />
+          <figcaption>Early concept sketches — exploded view and scale reference</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ─── Physical Model ─── -->
+    <section class="proj-section">
+      <div class="proj-img-row proj-img-row--2">
+        <figure class="proj-fig">
+          <img src="../images/pagecontent/DUCKY/DUCKY_2 1.jpg"
+            alt="Physical model of Ducky with highlighted movable parts" />
+          <figcaption>Physical model with highlighted movable parts</figcaption>
+        </figure>
+        <figure class="proj-fig">
+          <img src="../images/pagecontent/DUCKY/Rectangle 5.jpg" alt="Close-up render of Ducky in outdoor setting" />
+          <figcaption>Close-up render in an outdoor setting</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ─── Features ─── -->
+    <section class="proj-section">
+      <div class="proj-text-block">
+        <h2 class="proj-heading">Key Features</h2>
+        <p>
+          To reduce the uncanny feeling we introduced a dynamic display that allows the companion "Ducky" to change
+          expression based on the situation: green when a task is performed, red if it needs help, or yellow for
+          standby.
+        </p>
+        <p>
+          We decided to use colored orange parts to signal the elements that can move and interact with the real world:
+          the mouth to collect waste, the legs and the tail for movement purposes.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── Technical Drawing ─── -->
+    <section class="proj-section">
+      <div class="proj-img-full">
+        <figure class="proj-fig">
+          <img src="../images/pagecontent/DUCKY/Prodotto 3 sezioni 1.jpg"
+            alt="Technical drawing — front and side view of Ducky with section lines" />
+          <figcaption>Technical drawing — front and side section views</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ─── The Home ─── -->
+    <section class="proj-section">
+      <div class="proj-text-block">
+        <h2 class="proj-heading">The Home</h2>
+        <p>
+          We conceptualized a "home" for the duck — a docking station used to recharge the batteries and store the
+          trash that is collected. The home acts as a visible landmark in the urban environment, signaling Ducky's
+          presence in the neighborhood.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── Home images ─── -->
+    <section class="proj-section">
+      <div class="proj-img-row proj-img-row--2">
+        <figure class="proj-fig">
+          <img src="../images/pagecontent/DUCKY/Casetta aggiornata ISO SKTCH 1.jpg"
+            alt="Isometric sketch of Ducky's home docking station" />
+          <figcaption>Isometric sketch of the docking station</figcaption>
+        </figure>
+        <figure class="proj-fig">
+          <img src="../images/pagecontent/DUCKY/miniatura casa papera 1.jpg"
+            alt="3D render of Ducky's home in an outdoor environment" />
+          <figcaption>The home rendered in context</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ─── Back link ─── -->
+    <section class="proj-section proj-back-section">
+      <a href="../index.html#archivio" class="project-empty-back">← Back to archive</a>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo">frizzanteo</p>
+        <div class="footer-contact">
+          <a href="mailto:antonazzomatteo01@gmail.com" class="footer-email">antonazzomatteo01@gmail.com</a>
+        </div>
+        <p class="footer-piva">P.IVA: —</p>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.youtube.com/@frizzanteo" target="_blank" rel="noopener" class="footer-btn"
+          id="footer-youtube">
+          YouTube <span class="btn-arrow">↗</span>
+        </a>
+        <a href="#" class="footer-btn" id="footer-blog">
+          Blog <span class="btn-arrow">↗</span>
+        </a>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="../index.html" class="footer-nav-link">Home</a>
+        <a href="../index.html#archivio" class="footer-nav-link">Portfolio</a>
+        <a href="../about.html" class="footer-nav-link">Curriculum</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Fade in hero text
+      gsap.from('.proj-hero-header', {
+        y: 40, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.2
+      });
+
+      // Fade in hero image
+      gsap.from('.proj-hero-img-wrap', {
+        y: 40, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.4
+      });
+
+      // Fade in each section on scroll
+      gsap.utils.toArray('.proj-section').forEach((section) => {
+        gsap.from(section, {
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.7,
+          ease: 'power2.out',
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>

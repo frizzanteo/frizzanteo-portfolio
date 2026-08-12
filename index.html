@@ -1,136 +1,322 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frizzanteo Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="Immagini-porfolio/favicon.jpg">
-    <link rel="stylesheet" href="style.css">
-
-    <script src="libraries/p5.min.js"></script>
-    <script src="sketch.js"></script>
-
-    <script src="main.js"></script>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="shortcut icon" href="favicon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>frizzanteo — tuttotondo designer</title>
+  <meta name="description"
+    content="frizzanteo is Matteo Antonazzo, a tuttotondo designer based in Italy. Explore the project archive featuring web design, service design, product design, and art direction work." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preload" href="fonts/Mattone-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <script src="libraries/gsap.min.js" defer></script>
+  <script src="libraries/ScrollTrigger.min.js" defer></script>
+  <script src="libraries/p5.min.js" defer></script>
 </head>
 
 <body>
-    <div class="page-wrapper">
-        <section class="hero-section">
-            <div class="hero-top-links">
-                <div class="link-buttons">
-                    <a href="https://www.youtube.com/@FRIZZANTEO/featured" target="_blank" class="pill-button">YouTube
-                        ↗︎</a>
 
-                </div>
-                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark Mode"></button>
-            </div>
+  <!-- CUSTOM CURSOR IMAGE -->
+  <div id="custom-cursor" aria-hidden="true"></div>
 
-            <div class="hero-title-container">
-                <div class="hero-logo-wrapper">
-                    <div class="logo-text">
-                        friz<br>zan<br>teo
-                    </div>
-                    <div class="logo-sketch-container" id="letteraO">
-                        <!-- p5 outputs here -->
-                    </div>
-                </div>
+  <!-- ═══════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════ -->
+  <header class="nav-wrapper" role="banner">
+    <nav class="navbar" aria-label="Primary navigation">
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active" id="nav-home">Home</a>
+        <a href="#archivio" class="nav-link" id="nav-portfolio">Portfolio</a>
+        <a href="about.html" class="nav-link" id="nav-about">About</a>
+      </div>
+    </nav>
+  </header>
 
-                <p class="hero-subtitle">tuttotondo designer</p>
+  <!-- ═══════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════ -->
+  <main>
+    <section class="hero-section" aria-label="Hero">
 
-                <div class="hero-contact">
-                    <p>Contact me here</p>
-                    <a href="mailto:antonazzomatteo01@gmail.com" class="mail-link">antonazzomatteo01@gmail.com</a>
-                </div>
-            </div>
-        </section>
+      <!-- Floating decorative elements -->
+      <div class="hero-float-elements" aria-hidden="true">
+        <img src="images/homepage/block-eyes.png" class="float-el float-eyes" alt="" />
+        <img src="images/homepage/jester-hand.png" class="float-el float-jester" alt="" />
+        <img src="images/homepage/textured-circle.png" class="float-el float-circle" alt="" />
+        <img src="images/homepage/gray-square.png" class="float-el float-square" alt="" />
+        <img src="images/homepage/duck.png" class="float-el float-duck" alt="" />
+      </div>
 
-        <section class="portfolio-nav">
-            <a href="press.html" class="font-inter text-center press-link">PRESS ✍︎</a>
-            <p class="font-inter font-light text-center portfolio-subtitle">↓ ROBOANTE PORTFOLIO ↓</p>
-            <div class="portfolio-tags">
-                <div class="portfolio-tags-row">
-                    <!-- <div class="pill-button">Web Design</div> -->
-                    <div class="pill-button" data-filter="media" onclick="filterProjects('media')">Media Design</div>
-                </div>
-                <div class="portfolio-tags-row">
-                    <div class="pill-button" data-filter="sustainable" onclick="filterProjects('sustainable')">
-                        Sustainable Design</div>
-                </div>
+      <div class="hero-content">
+        <!-- Main title row with p5 canvas -->
+        <div class="hero-title-row">
+          <h1 class="hero-title">frizzante<span class="letter-o">o<div id="p5-container"
+                aria-label="Interactive 3D sphere animation"></div></span></h1>
+        </div>
+        <!-- Subtitle -->
+        <div class="hero-subtitle-row">
+          <p class="hero-subtitle">tuttotondo designer</p>
+        </div>
+        <!-- Contact -->
+        <p class="hero-email">
+          <a href="mailto:antonazzomatteo01@gmail.com">antonazzomatteo01@gmail.com</a>
+        </p>
+      </div>
 
-            </div>
-        </section>
+    </section>
 
-        <section class="project-list content-container">
-            <a href="material-matters.html" class="project-card" data-category="sustainable">
-                <div class="project-image-wrapper">
-                    <img src="Immagini-porfolio/MATERIAL-MATTERS/mama-cave.jpg" alt="Material Matters Cover">
-                </div>
-                <div class="project-card-footer bg-mama">
-                    <h3>MATERIAL MATTERS</h3>
-                    <p>Foundig and managing a material initiative</p>
-                </div>
-            </a>
 
-            <a href="information-design.html" class="project-card" data-category="media">
-                <div class="project-image-wrapper">
-                    <img src="Immagini-porfolio/DATAVIZ/dataviz-cover.jpg" alt="Information Design Cover">
-                </div>
-                <div class="project-card-footer bg-info">
-                    <h3>INFORMATION DESIGN</h3>
-                    <p>Fair representation of data of social media use and their consequence on human interactions</p>
-                </div>
-            </a>
+    <!-- ═══════════════════════════════════
+         ARCHIVIO — PROJECT ARCHIVE
+    ═══════════════════════════════════ -->
+    <section class="archivio-section" id="archivio" aria-label="Project Archive">
+      <div class="archivio-inner">
 
-            <a href="moltitudine.html" class="project-card" data-category="sustainable">
-                <div class="project-image-wrapper">
-                    <img src="Immagini-porfolio/MOLTITUDINE/moltitudine-cover.jpg" alt="Moltitudine Cover">
-                </div>
-                <div class="project-card-footer bg-molto">
-                    <h3>MOLTITUDINE</h3>
-                    <p>turning preconsumer waste into a surface</p>
-                </div>
-            </a>
+        <div class="archivio-header">
+          <h2 class="archivio-title">PROJECT ARCHIVE</h2>
+        </div>
 
-            <a href="carefull-instruments.html" class="project-card" data-category="sustainable">
-                <div class="project-image-wrapper">
-                    <img src="Immagini-porfolio/CAREFULL-INSTRUMENTS/cf-playtest.jpg" alt="Carefull Instruments Cover">
-                </div>
-                <div class="project-card-footer bg-cf">
-                    <h3>CAREFULL INSTRUMENTS</h3>
-                    <p>anthropological approach to product design</p>
-                </div>
-            </a>
+        <div class="archivio-table" role="table" aria-label="Projects">
 
-            <a href="ducky.html" class="project-card" data-category="media">
-                <div class="project-image-wrapper">
-                    <img src="Immagini-porfolio/DUCKY/ducky-cover.jpg" alt="Ducky Cover">
-                </div>
-                <div class="project-card-footer bg-ducky">
-                    <h3>DUCKY</h3>
-                    <p>How to change robot perception through gentle shapes and good interaction design</p>
-                </div>
-            </a>
+          <!-- Table head -->
+          <div class="archivio-row archivio-head" role="row">
+            <span class="col-tags" role="columnheader">[ TAGS ]</span>
+            <span class="col-title" role="columnheader">[ Title ]</span>
+            <span class="col-year" role="columnheader">[ Year ]</span>
+          </div>
 
-            <a href="aeking.html" class="project-card" data-category="sustainable">
-                <div class="project-image-wrapper bg-white">
-                    <img src="Immagini-porfolio/AEKING/website-mockup.png" alt="Aeking Cover">
-                </div>
-                <div class="project-card-footer bg-aeking">
-                    <h3>AEKING</h3>
-                    <p>A proposal for fast furniture reuse</p>
-                </div>
-            </a>
-        </section>
+          <!-- 2026 -->
+          <div class="archivio-row" role="row" data-hover="none">
+            <span class="col-tags"><span class="tag">WEB DESIGN</span></span>
+            <span class="col-title">
+              <a href="https://materialfam.eu/" target="_blank" rel="noopener"
+                class="project-link">https://materialfam.eu/</a>
+            </span>
+            <span class="col-year">2026</span>
+          </div>
 
-        <footer class="site-footer">
-            <p class="font-mattone">frizzanteo</p>
-            <a href="mailto:antonazzomatteo01@gmail.com"
-                class="font-inter font-light underline">antonazzomatteo01@gmail.com</a>
+          <div class="archivio-row" role="row" data-hover="none">
+            <span class="col-tags"><span class="tag">VIDEO EDITING</span></span>
+            <span class="col-title">
+              <span class="project-link no-link">Backstage Movie (under NDA)</span>
+            </span>
+            <span class="col-year">2026</span>
+          </div>
+
+          <!--  <div class="archivio-row" role="row" data-hover="none">
+            <span class="col-tags"><span class="tag">ART</span></span>
+            <span class="col-title">
+              <a href="pages/scacchiera.html" class="project-link">Disassemblable Chessboard</a>
+            </span>
+            <span class="col-year">2026</span>
+          </div> -->
+
+          <!-- 2025 -->
+          <div class="archivio-row archivio-row--tall" role="row" data-hover="none">
+            <span class="col-tags">
+              <span class="tag">MASTER THESIS</span>
+              <span class="tag">SERVICE DESIGN</span>
+              <span class="tag">WEB APP</span>
+            </span>
+            <span class="col-title">
+              <a href="https://mamacatalogue.com/" target="_blank" rel="noopener"
+                class="project-link">https://mamacatalogue.com/</a>
+            </span>
+            <span class="col-year">2025</span>
+          </div>
+          <div class="archivio-row" role="row" data-hover="none">
+            <span class="col-tags">
+              <span class="tag">PODCAST</span>
+            </span>
+            <span class="col-title">
+              <a href="https://www.youtube.com/@MaterialMattersBZ" target="_blank" rel="noopener"
+                class="project-link">My short podcast career <span class="btn-arrow"
+                  style="font-size: 0.8em; margin-left: 2px;">↗</span></a>
+            </span>
+            <span class="col-year">2025</span>
+          </div>
+
+
+          <div class="archivio-row archivio-row--tall" role="row" data-hover="none">
+            <span class="col-tags">
+              <span class="tag">SERVICE DESIGN</span>
+              <span class="tag">WEB DESIGN</span>
+            </span>
+            <span class="col-title">
+              <a href="https://mamabz.com/" target="_blank" rel="noopener" class="project-link">https://mamabz.com/</a>
+            </span>
+            <span class="col-year">2025</span>
+          </div>
+
+
+          <div class="archivio-row" role="row" data-hover="none">
+            <span class="col-tags"><span class="tag">WEB DESIGN</span></span>
+            <span class="col-title">
+              <a href="https://upcyclingconvention.eu/" target="_blank" rel="noopener"
+                class="project-link">https://upcyclingconvention.eu/</a>
+            </span>
+            <span class="col-year">2025</span>
+          </div>
+
+          <div class="archivio-row archivio-row--tall" role="row" data-hover="none">
+            <span class="col-tags">
+              <span class="tag">ART</span>
+              <span class="tag">A.I.</span>
+            </span>
+            <span class="col-title">
+              <a href="https://frizzanteo.github.io/computerroom/" target="_blank" rel="noopener"
+                class="project-link">https://frizzanteo.github.io/computerroom</a>
+            </span>
+            <span class="col-year">2025</span>
+          </div>
+
+          <div class="archivio-row" role="row" data-hover="none">
+            <span class="col-tags"><span class="tag">WEB DESIGN</span></span>
+            <span class="col-title">
+              <span class="project-link no-link">This website</span>
+            </span>
+            <span class="col-year">ongoing</span>
+          </div>
+
+          <!-- 2024 -->
+          <div class="archivio-row" role="row" data-hover="moltitudine">
+            <span class="col-tags"><span class="tag">MATERIAL DESIGN</span></span>
+            <span class="col-title">
+              <a href="pages/moltitudine.html" class="project-link">Moltitudine</a>
+            </span>
+            <span class="col-year">2024</span>
+          </div>
+
+          <div class="archivio-row archivio-row--tall" role="row" data-hover="socialmedia">
+            <span class="col-tags"><span class="tag">DATAVIZ</span></span>
+            <span class="col-title">
+              <a href="pages/social-media.html" class="project-link">Are Social Media actually a bad thing?</a>
+            </span>
+            <span class="col-year">2024</span>
+          </div>
+
+          <div class="archivio-row" role="row" data-hover="carefull">
+            <span class="col-tags"><span class="tag">PRODUCT DESIGN</span></span>
+            <span class="col-title">
+              <a href="pages/carefull-instruments.html" class="project-link">CareFull Instruments</a>
+            </span>
+            <span class="col-year">2024</span>
+          </div>
+
+          <div class="archivio-row archivio-row--tall" role="row" data-hover="aeking">
+            <span class="col-tags">
+              <span class="tag">BACHELOR THESIS</span>
+              <span class="tag">SERVICE DESIGN</span>
+              <span class="tag">WEB DESIGN</span>
+            </span>
+            <span class="col-title">
+              <a href="pages/aeking.html" class="project-link">AEKING</a>
+            </span>
+            <span class="col-year">2024</span>
+          </div>
+
+          <!-- 2022 -->
+          <div class="archivio-row" role="row" data-hover="ducky">
+            <span class="col-tags"><span class="tag">CONCEPT DESIGN</span></span>
+            <span class="col-title">
+              <a href="pages/ducky.html" class="project-link">Ducky</a>
+            </span>
+            <span class="col-year">2022</span>
+          </div>
+
+        </div><!-- /archivio-table -->
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         CURRICULUM CARD
+    ═══════════════════════════════════ -->
+    <section class="curriculum-section" aria-label="About / Curriculum">
+      <a href="about.html" class="curriculum-card" id="curriculum-card" aria-label="Go to Curriculum page">
+        <div class="curriculum-left">
+          <h2 class="curriculum-title">About</h2>
+          <p class="curriculum-subtitle">Academic path, work experience,<br>volunteering, press and other serious stuff
+          </p>
+        </div>
+        <div class="curriculum-right">
+          <img src="images/homepage/about_homepage.jpg" alt="About page preview" class="curriculum-img" />
+        </div>
+      </a>
+    </section>
+
+
+  </main>
+
+  <!-- ═══════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <p class="footer-logo">frizzanteo</p>
+        <div class="footer-contact">
+          <a href="mailto:antonazzomatteo01@gmail.com" class="footer-email">antonazzomatteo01@gmail.com</a>
+        </div>
+        <p class="footer-piva">P.IVA: —</p>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://www.youtube.com/@frizzanteo" target="_blank" rel="noopener" class="footer-btn"
+          id="footer-youtube">
+          YouTube <span class="btn-arrow">↗</span>
+        </a>
+        <a href="#" class="footer-btn" id="footer-blog">
+          Blog <span class="btn-arrow">↗</span>
+        </a>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html" class="footer-nav-link">Home</a>
+        <a href="#archivio" class="footer-nav-link">Portfolio</a>
+        <a href="about.html" class="footer-nav-link">Curriculum</a>
+      </nav>
 
     </div>
-    </footer>
-    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="sketch.js"></script>
+
+  <script>
+    // Highlight Portfolio nav link when #archivio section is in view
+    // and remove Home highlight at the same time
+    const archivio = document.getElementById('archivio');
+    const navPortfolio = document.getElementById('nav-portfolio');
+    const navHome = document.getElementById('nav-home');
+
+    if (archivio && navPortfolio && navHome) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            navPortfolio.classList.toggle('active', entry.isIntersecting);
+            navHome.classList.toggle('active', !entry.isIntersecting);
+          });
+        },
+        { threshold: 0.1 }
+      );
+      observer.observe(archivio);
+    }
+
+    // If landing on index.html#archivio (e.g. from about.html),
+    // scroll smoothly to the archive section after the page loads
+    if (window.location.hash === '#archivio' && archivio) {
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          archivio.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      });
+    }
+  </script>
+
 </body>
 
 </html>

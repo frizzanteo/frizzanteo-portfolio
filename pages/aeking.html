@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+  <link rel="shortcut icon" href="../favicon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AEKING · frizzanteo</title>
+  <meta name="description"
+    content="AEKING — A systemic framework using hacking to extend the lifecycle of fast furniture." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preload" href="../fonts/Mattone-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <script src="../libraries/gsap.min.js" defer></script>
+  <script src="../libraries/ScrollTrigger.min.js" defer></script>
+  <style>
+    /* Specific styles for the IKEA man gallery */
+    .ikea-man-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      align-items: center;
+      justify-items: center;
+      margin: 3rem 0;
+    }
+
+    .ikea-man-grid img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .ui-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .ui-gallery img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .ui-gallery-item-full {
+      grid-column: 1 / -1;
+    }
+
+    .download-btn-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background-color: transparent;
+      color: var(--text-primary, #000);
+      text-decoration: none;
+      font-family: var(--font-primary);
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      border-radius: 50px;
+      border: 1.5px solid currentColor;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+      z-index: 0;
+    }
+
+    .download-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: var(--text-primary, #000);
+      border-radius: inherit;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: -1;
+    }
+
+    .download-btn:hover {
+      color: var(--bg, #f5f0ea);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .download-btn:hover::before {
+      transform: scaleX(1);
+    }
+
+    .download-btn svg {
+      transition: transform 0.3s ease;
+    }
+
+    .download-btn:hover svg {
+      transform: translateY(2px);
+    }
+
+    @media (max-width: 768px) {
+      .ikea-man-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ui-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════ -->
+  <header class="nav-wrapper" role="banner">
+    <nav class="navbar" aria-label="Primary navigation">
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link" id="nav-home">Home</a>
+        <a href="../index.html#archivio" class="nav-link" id="nav-portfolio">Portfolio</a>
+        <a href="../about.html" class="nav-link" id="nav-about">About</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="project-detail">
+
+    <!-- ─── Hero ─── -->
+    <section class="proj-hero">
+      <div class="proj-hero-header">
+        <span class="proj-hero-tag">Bachelor Thesis · 2024</span>
+        <h1 class="proj-hero-title">AEKING</h1>
+        <p class="proj-hero-subtitle">A fake platform for IKEA</p>
+      </div>
+      <div class="proj-hero-img-wrap">
+        <img src="../images/pagecontent/AEKING/Poster Mockup aeking.jpg" alt="AEKING Poster Mockup"
+          class="proj-hero-img" />
+      </div>
+    </section>
+
+    <!-- ─── Overview ─── -->
+    <section class="proj-section">
+      <div class="proj-text-block">
+        <h2 class="proj-heading">Rethinking Fast Furniture</h2>
+        <p class="proj-lead">
+          During my Bachelor thesis I explored the environmental consequences of mass-produced "Fast Furniture,"
+          focusing specifically on the global giant IKEA. While IKEA successfully champions democratic design by
+          providing affordable goods, its reliance on fragile, hard-to-repair materials like particleboard creates a
+          problematic cycle of consumption and waste.
+        </p>
+        <p>
+          To combat this throwaway culture, this thesis proposes a systemic, sustainable, and economically competitive
+          framework that uses the concept of "hacking" to extend the lifecycle of these ubiquitous products. Hacking
+          IKEA products is already a diffused practice, sponsored even by the company itself.
+        </p>
+      </div>
+    </section>
+
+    <hr class="proj-divider" />
+
+
+
+    <section class="proj-section">
+      <div class="proj-text-block">
+        <h2 class="proj-heading">The Digital Ecosystem</h2>
+        <p>
+          At the center of this vision is <strong>AEKING</strong>, a conceptual web platform designed to help users
+          preserve, repair, and re-valorize their furniture. Designed with a bold, neo-brutalist aesthetic that subverts
+          IKEA's traditional branding, the platform fosters a circular economy through community engagement.
+        </p>
+        <p>
+          A core feature is an interactive map that connects everyday consumers with local "Hackers," skilled artisans,
+          and FabLabs ready to assist with repairs or upgrades. Additionally, AEKING provides step-by-step "cure" guides
+          for standard damages, downloadable 3D models for furniture modifications, and a dedicated marketplace to buy,
+          sell, or donate upcycled pieces.
+        </p>
+      </div>
+
+      <div class="ui-gallery">
+        <div class="ui-gallery-item-full">
+          <img src="../images/pagecontent/AEKING/HOME PAGE.png" alt="AEKING Home Page" />
+        </div>
+        <img src="../images/pagecontent/AEKING/AREA HACKER.png" alt="AEKING Hacker Area" />
+        <img src="../images/pagecontent/AEKING/wishlist.png" alt="AEKING Wishlist" />
+      </div>
+
+      <!-- Box mockup for impact 
+      <div class="proj-img-full" style="margin-top: 4rem;">
+        <figure class="proj-fig">
+          <img src="../images/pagecontent/AEKING/Product Box Mockup risoluzione alta.jpg" alt="AEKING Product Box" />
+        </figure>
+      </div>
+    </section> -->
+
+      <hr class="proj-divider" />
+
+      <!-- ─── Physical Prototypes ─── -->
+      <section class="proj-section">
+        <div class="proj-text-block">
+          <h2 class="proj-heading">Physical Proofs of Concept</h2>
+          <p class="proj-lead">
+            To validate the theoretical digital flows, the project introduces three physical prototypes that solve
+            common
+            problems through creative hacking.
+          </p>
+        </div>
+      </section>
+
+      <!-- DORIK -->
+      <section class="proj-section">
+        <div class="proj-text-block">
+          <h2 class="proj-heading">DORIK: The BILLY Fix</h2>
+          <p>
+            DORIK addresses the notorious issue of bending shelves in the popular BILLY bookcase by introducing
+            3D-printable, stackable support columns inspired by ancient Greek architecture. It acts as both a structural
+            fix and an aesthetic upgrade.
+          </p>
+        </div>
+
+        <div class="proj-img-row proj-img-row--2">
+          <figure class="proj-fig">
+            <img src="../images/pagecontent/AEKING/DORIK 1.jpg" alt="DORIK prototype" />
+          </figure>
+          <figure class="proj-fig">
+            <img src="../images/pagecontent/AEKING/DORIC disegno isometrico .jpg" alt="DORIK Isometric Drawing" />
+          </figure>
+        </div>
+
+        <div class="download-btn-group">
+          <a href="../images/pagecontent/AEKING/3D files/Base supporto.stl" download class="download-btn">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 1v8M4 6l3 3 3-3M1 10v1a2 2 0 002 2h8a2 2 0 002-2v-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Download Base STL
+          </a>
+          <a href="../images/pagecontent/AEKING/3D files/Corpo supporto.stl" download class="download-btn">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 1v8M4 6l3 3 3-3M1 10v1a2 2 0 002 2h8a2 2 0 002-2v-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Download Column STL
+          </a>
+        </div>
+      </section>
+
+      <!-- ATLAS -->
+      <section class="proj-section">
+        <div class="proj-text-block">
+          <h2 class="proj-heading">ATLAS: The LACK Rescuer</h2>
+          <p>
+            ATLAS demonstrates how artisan intervention can rescue completely broken items, taking the snapped legs of a
+            LACK table and casting them into a new, brutalist concrete base.
+          </p>
+        </div>
+        <div class="proj-img-full">
+          <figure class="proj-fig">
+            <img src="../images/pagecontent/AEKING/ATLAS 1.jpg" alt="ATLAS concrete base for LACK table" />
+          </figure>
+        </div>
+      </section>
+
+      <!-- ADDE+ -->
+      <section class="proj-section">
+        <div class="proj-text-block">
+          <h2 class="proj-heading">ADDE+: The Comfort Upgrade</h2>
+          <p>
+            Finally, ADDE+ serves as a textile provocation, using basic tailoring and repurposed IKEA FRAKTA bags to
+            create comfortable, durable cushions for the notoriously rigid ADDE chair.
+          </p>
+        </div>
+        <div class="proj-img-row proj-img-row--2">
+          <figure class="proj-fig">
+            <img src="../images/pagecontent/AEKING/ADDE+ 1.jpg" alt="ADDE+ Prototype" />
+          </figure>
+          <figure class="proj-fig">
+            <img src="../images/pagecontent/AEKING/RENDER ADDE E FODERA.jpg" alt="ADDE+ Render" />
+          </figure>
+        </div>
+      </section>
+
+      <!-- ─── Back link ─── -->
+      <section class="proj-section proj-back-section">
+        <a href="../index.html#archivio" class="project-empty-back">← Back to archive</a>
+      </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo">frizzanteo</p>
+        <div class="footer-contact">
+          <a href="mailto:antonazzomatteo01@gmail.com" class="footer-email">antonazzomatteo01@gmail.com</a>
+        </div>
+        <p class="footer-piva">P.IVA: —</p>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.youtube.com/@frizzanteo" target="_blank" rel="noopener" class="footer-btn"
+          id="footer-youtube">
+          YouTube <span class="btn-arrow">↗</span>
+        </a>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="../index.html" class="footer-nav-link">Home</a>
+        <a href="../index.html#archivio" class="footer-nav-link">Portfolio</a>
+        <a href="../about.html" class="footer-nav-link">Curriculum</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Fade in hero text
+      gsap.from('.proj-hero-header', {
+        y: 40, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.2
+      });
+
+      // Fade in hero image
+      gsap.from('.proj-hero-img-wrap', {
+        y: 40, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.4
+      });
+
+      // Fade in each section on scroll
+      gsap.utils.toArray('.proj-section').forEach((section) => {
+        gsap.from(section, {
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.7,
+          ease: 'power2.out',
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
