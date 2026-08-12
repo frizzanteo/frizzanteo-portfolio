@@ -1174,6 +1174,7 @@ a.project-link::after {
   .footer-inner {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 24px;
   }
 
