@@ -428,7 +428,8 @@ body.custom-cursor-active #custom-cursor {
    PROJECT ARCHIVE (ARCHIVIO)
 ═══════════════════════════════════════════════ */
 .archivio-section {
-  padding: 40px var(--page-padding) 120px;
+  padding: 40px var(--page-padding) 60px;
+  scroll-margin-top: 80px;
 }
 
 .archivio-inner {
@@ -930,7 +931,7 @@ a.project-link::after {
   margin-bottom: 64px;
 }
 
-.proj-hero + .proj-section {
+.proj-hero+.proj-section {
   margin-top: 120px;
 }
 
@@ -1058,7 +1059,7 @@ a.project-link::after {
 
   .about-fixed-image {
     height: auto;
-    max-height: 50vh;
+    max-height: 60vh;
   }
 
   .about-content {
