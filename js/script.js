@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
 function initGSAP() {
 
   /* ── 1. Hero entrance ── */
-  const heroTitle     = document.querySelector('.hero-title');
-  const heroSubtitle  = document.querySelector('.hero-subtitle');
-  const heroEmail     = document.querySelector('.hero-email');
+  const heroTitle = document.querySelector('.hero-title');
+  const heroSubtitle = document.querySelector('.hero-subtitle');
+  const heroEmail = document.querySelector('.hero-email');
 
   if (heroTitle) {
     gsap.from([heroTitle, heroSubtitle, heroEmail].filter(Boolean), {
@@ -51,11 +51,11 @@ function initGSAP() {
   const floatEls = document.querySelectorAll('.float-el');
 
   const floatConfigs = [
-    { y: -18, rotation: 4,  duration: 3.8 },
+    { y: -18, rotation: 4, duration: 3.8 },
     { y: -14, rotation: -6, duration: 4.2 },
-    { y: -20, rotation: 5,  duration: 3.5 },
+    { y: -20, rotation: 5, duration: 3.5 },
     { y: -12, rotation: -3, duration: 4.6 },
-    { y: -16, rotation: 7,  duration: 3.9 },
+    { y: -16, rotation: 7, duration: 3.9 },
   ];
 
   floatEls.forEach((el, i) => {
@@ -167,17 +167,20 @@ function initCustomCursor() {
 
   // Hover-image map per project row
   const hoverImages = {
-    'moltitudine' : 'images/hover_images/hover_moltitudine.png',
-    'socialmedia' : 'images/hover_images/hover_socialmediabadthing.png',
-    'carefull'    : 'images/hover_images/hover_carefull.png',
-    'aeking'      : 'images/hover_images/hover_aeking.png',
-    'ducky'       : 'images/hover_images/hover_ducky.png',
+    'tapedesign': 'images/hover_images/hover_tapedesign.webp',
+    'scacchiera': 'images/hover_images/hover_scacchiera.webp',
+    'sienapedia': 'images/hover_images/hover_sienapedia.webp',
+    'moltitudine': 'images/hover_images/hover_moltitudine.webp',
+    'socialmedia': 'images/hover_images/hover_socialmediabadthing.webp',
+    'carefull': 'images/hover_images/hover_carefull.webp',
+    'aeking': 'images/hover_images/hover_aeking.webp',
+    'ducky': 'images/hover_images/hover_ducky.webp',
   };
 
   // Track mouse position
   document.addEventListener('mousemove', (e) => {
     cursor.style.left = e.clientX + 'px';
-    cursor.style.top  = e.clientY + 'px';
+    cursor.style.top = e.clientY + 'px';
   });
 
   // Activate custom image on archive rows with hover data
@@ -191,11 +194,17 @@ function initCustomCursor() {
     row.addEventListener('mouseenter', () => {
       cursor.style.backgroundImage = `url('${imgSrc}')`;
       document.body.classList.add('custom-cursor-active');
+      if (row.dataset.hoverSize === 'large') {
+        cursor.classList.add('cursor--large');
+      } else if (row.dataset.hoverSize === 'small') {
+        cursor.classList.add('cursor--small');
+      }
     });
 
     row.addEventListener('mouseleave', () => {
       cursor.style.backgroundImage = 'none';
       document.body.classList.remove('custom-cursor-active');
+      cursor.classList.remove('cursor--large', 'cursor--small');
     });
   });
 }

@@ -126,6 +126,16 @@ body.custom-cursor-active #custom-cursor {
   display: block;
 }
 
+#custom-cursor.cursor--large {
+  width: clamp(520px, 64vw, 200px);
+  height: clamp(520px, 64vw, 200px);
+}
+
+#custom-cursor.cursor--small {
+  width: clamp(130px, 16vw, 50px);
+  height: clamp(130px, 16vw, 50px);
+}
+
 /* Default cursor where not custom */
 .nav-link,
 .nav-btn,
