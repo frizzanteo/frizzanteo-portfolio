@@ -207,7 +207,7 @@ body.custom-cursor-active #custom-cursor {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: calc(var(--nav-height) + 80px) var(--page-padding) 40px;
+  padding: calc(var(--nav-height) + 40px) var(--page-padding) 20px;
   /* reduced bottom padding */
   overflow: hidden;
 }
@@ -350,6 +350,37 @@ body.custom-cursor-active #custom-cursor {
   width: clamp(70px, 9vw, 130px);
   bottom: 18%;
   left: 7%;
+}
+
+
+/* ═══════════════════════════════════════════════
+   INTRO / BIO SECTION
+═══════════════════════════════════════════════ */
+.intro-section {
+  padding: 0 var(--page-padding) 20px;
+}
+
+.intro-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.intro-text {
+  font-family: var(--font-body);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 300;
+  line-height: 1.3;
+  color: var(--color-text);
+  word-break: break-word;
+}
+
+.intro-text strong {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05em;
 }
 
 
