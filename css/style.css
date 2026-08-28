@@ -40,7 +40,8 @@
   --color-nav-border: #1A1A1A;
   --color-btn-bg: #1A1A1A;
   --color-btn-text: #F5F4EF;
-  --color-card-bg: #dcdcdc;
+  --color-card-bg: #1A1A1A;
+  --color-card-texts: #F5F4EF;
   --color-footer-bg: #1A1A1A;
   --color-footer-text: #F5F4EF;
   --color-tag: #1A1A1A;
@@ -154,7 +155,7 @@ body.custom-cursor-active #custom-cursor {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-nav-bg);
+  background: var(--color-bg);
   border: 1px solid var(--color-nav-border);
   border-radius: var(--radius-nav);
   padding: 8px 14px;
@@ -393,6 +394,7 @@ body.custom-cursor-active #custom-cursor {
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.05;
+  color: var(--color-btn-text);
 }
 
 .curriculum-subtitle {
@@ -402,6 +404,8 @@ body.custom-cursor-active #custom-cursor {
   color: var(--color-text-dim);
   line-height: 1.6;
   max-width: 340px;
+  color: var(--color-btn-text);
+
 }
 
 .curriculum-right {
