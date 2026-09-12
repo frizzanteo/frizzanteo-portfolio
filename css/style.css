@@ -957,14 +957,13 @@ a.project-link::after {
   width: 100%;
   border-radius: 12px;
   overflow: hidden;
-  background-color: var(--color-bg-light, #f3f3f3);
 }
 
 .proj-hero-img {
   width: 100%;
   height: auto;
   max-height: 75vh;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
 }
 
@@ -978,6 +977,28 @@ a.project-link::after {
 
 .proj-hero+.proj-section {
   margin-top: 120px;
+}
+
+/* Side-by-side split layout */
+.proj-section--split {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.proj-section--split > * {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .proj-section--split {
+    display: block;
+  }
+
+  .proj-section--split > * + * {
+    margin-top: 24px;
+  }
 }
 
 /* Divider */
