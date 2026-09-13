@@ -176,7 +176,7 @@ function initCustomCursor() {
     'aeking': 'images/hover_images/hover_aeking.webp',
     'ducky': 'images/hover_images/hover_ducky.webp',
     'circulus': 'images/hover_images/circulus.JPG',
-    'christmasshuffle': 'images/hover_images/hover_christamsshuffle.webp',
+    'christmasshuffle': 'images/hover_images/hover_christmasshuffle.webp',
   };
 
   // Track mouse position
